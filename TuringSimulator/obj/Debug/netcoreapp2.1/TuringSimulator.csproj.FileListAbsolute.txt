@@ -1,0 +1,11 @@
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\bin\Debug\netcoreapp2.1\TuringSimulator.deps.json
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\bin\Debug\netcoreapp2.1\TuringSimulator.runtimeconfig.json
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\bin\Debug\netcoreapp2.1\TuringSimulator.runtimeconfig.dev.json
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\bin\Debug\netcoreapp2.1\TuringSimulator.dll
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\bin\Debug\netcoreapp2.1\TuringSimulator.pdb
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\obj\Debug\netcoreapp2.1\TuringSimulator.csprojAssemblyReference.cache
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\obj\Debug\netcoreapp2.1\TuringSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\obj\Debug\netcoreapp2.1\TuringSimulator.AssemblyInfoInputs.cache
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\obj\Debug\netcoreapp2.1\TuringSimulator.AssemblyInfo.cs
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\obj\Debug\netcoreapp2.1\TuringSimulator.dll
+C:\Users\Daumantas\source\repos\TuringSimulator\TuringSimulator\obj\Debug\netcoreapp2.1\TuringSimulator.pdb
