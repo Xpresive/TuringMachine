@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -10,7 +10,7 @@ namespace TuringSimulator
         static void Main(string[] args)
         {
 
-
+            TuringMachine t;
 
             /*
             int a, b;
@@ -57,7 +57,7 @@ namespace TuringSimulator
 
         public TuringMachine()
         {
-           
+            /* need input here */
         }
 
 
@@ -66,11 +66,11 @@ namespace TuringSimulator
     
     public class Instruction
     {
-        string CurrentStatus;
-        string CurrentSymbol;
-        string NewSymbol;
-        string Direction;
-        string NewStatus;
+        public string CurrentStatus;
+        public string CurrentSymbol;
+        public string NewSymbol;
+        public string Direction;
+        public string NewStatus;
 
         public Instruction(string currentStatus, string currentSymbol, string newSymbol, string direction, string newStatus)
         {
