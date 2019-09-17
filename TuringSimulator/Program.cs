@@ -12,48 +12,40 @@ namespace TuringSimulator
         {
 
             TuringMachine t = new TuringMachine();
-            t.Tell();
+            t.Check();
 
         }
     }
     public class TuringMachine
     {
-        //public List<Instruction> Instructions = new List<Instruction>();
-        List<Instruction> Instructions = File.ReadLines("input.txt").Skip(2).Take(20).ToList();
+        public List<Instruction> Instructions = new List<Instruction>();
         public string Head;
         public string Tape;
 
-        //Items[j].Code
 
         public TuringMachine()
         {
-            /* need input here */
-            string[] rest = new string[100];
-            /*File.ReadAllText("input.txt").Replace(" ", string.Empty);
-            string head = File.ReadLines("input.txt").Take(1).First();
-            string tape = File.ReadLines("input.txt").Skip(1).Take(1).First();
-            string rest[] = File.ReadAllText("input.txt").Replace(" ", string.Empty).Skip(2);
-            Console.WriteLine(head);
-            Console.WriteLine(tape);*/
-
             var lines = File.ReadAllLines("input.txt").Select(x => x.Replace(" ", string.Empty));
-            (int head, string tape, List<string> Instructions) = (int.Parse(lines.First()), lines.Skip(1).First(), lines.Skip(2).ToList());
-           
-            Console.WriteLine(head);
-            Console.WriteLine(tape);
-           
+            (int head, string tape, List<string> Input) = (int.Parse(lines.First()), lines.Skip(1).First(), lines.Skip(2).ToList());
 
+            Head = head.ToString();
+            Tape = tape;
+
+            Console.WriteLine(Input[1]);
+            Console.WriteLine(Input.Count);
         }
 
-        public void Tell()
+        public void Check()
         {
-            Console.WriteLine(Instructions[0].CurrentStatus);
+            Console.WriteLine(Instructions.Count);
+            Console.WriteLine(Head);
+            Console.WriteLine(Tape);
         }
 
 
-        
+
     }
-    
+
     public class Instruction
     {
         public string CurrentStatus;
@@ -73,12 +65,5 @@ namespace TuringSimulator
 
         public Instruction() { }
     }
-    
-}
 
-/*
- * File.ReadAllText("input.txt").ToCharArray().Where(x => x != ' ').ToArray();
-No spaces no more
-Could've just done File.ReadAllText("input.txt").Replace(" ", string.Empty)
-*
-*/
+}
