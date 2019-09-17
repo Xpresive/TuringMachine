@@ -1,7 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
+using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TuringSimulator
 {
@@ -10,54 +11,33 @@ namespace TuringSimulator
         static void Main(string[] args)
         {
 
-            TuringMachine t;
+            TuringMachine t = new TuringMachine();
 
-            /*
-            int a, b;
-            char c;
-
-
-            string Input = Console.ReadLine();
-            char[] Tape = Input.ToCharArray();
-            // Console.WriteLine(Input);
-            int TapeLength = Input.Length;
-            int Head = 0;
-
-
-            while (true)
-            {
-                string Command = Console.ReadLine();
-                string[] split = Command.Split(' ');
-                a = Int32.Parse(split [0]);
-                b = Int32.Parse(split[1]);
-                c = Char.Parse(split[2]);
-                /*
-                Console.WriteLine(a);
-                Console.WriteLine(b);
-                Console.WriteLine(c);
-                
-                if (Tape[Head] == a)
-                {
-                    Tape[Head] = (char)b;
-                    if (c == 'R')
-                        Head++;
-                    else Head--;
-                }
-                else
-                    continue;
-
-
-            }
-        */
         }
     }
     public class TuringMachine
     {
         public List<Instruction> Instructions = new List<Instruction>();
+        public string Head;
+        public string Tape;
 
         public TuringMachine()
         {
             /* need input here */
+            string[] rest = new string[100];
+            /*File.ReadAllText("input.txt").Replace(" ", string.Empty);
+            string head = File.ReadLines("input.txt").Take(1).First();
+            string tape = File.ReadLines("input.txt").Skip(1).Take(1).First();
+            string rest[] = File.ReadAllText("input.txt").Replace(" ", string.Empty).Skip(2);
+            Console.WriteLine(head);
+            Console.WriteLine(tape);*/
+
+            var lines = File.ReadAllLines("input.txt").Select(x => x.Replace(" ", string.Empty));
+            (int head, string tape, List<string> Instructions) = (int.Parse(lines.First()), lines.Skip(1).First(), lines.Skip(2).ToList());
+            Console.WriteLine(head);
+            Console.WriteLine(tape);
+            Console.WriteLine(Instructions[1].CurrentStatus);
+
         }
 
 
@@ -85,3 +65,10 @@ namespace TuringSimulator
     }
     
 }
+
+/*
+ * File.ReadAllText("input.txt").ToCharArray().Where(x => x != ' ').ToArray();
+No spaces no more
+Could've just done File.ReadAllText("input.txt").Replace(" ", string.Empty)
+*
+*/
