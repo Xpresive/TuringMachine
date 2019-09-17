@@ -12,14 +12,18 @@ namespace TuringSimulator
         {
 
             TuringMachine t = new TuringMachine();
+            t.Tell();
 
         }
     }
     public class TuringMachine
     {
-        public List<Instruction> Instructions = new List<Instruction>();
+        //public List<Instruction> Instructions = new List<Instruction>();
+        List<Instruction> Instructions = File.ReadLines("input.txt").Skip(2).Take(20).ToList();
         public string Head;
         public string Tape;
+
+        //Items[j].Code
 
         public TuringMachine()
         {
@@ -34,10 +38,16 @@ namespace TuringSimulator
 
             var lines = File.ReadAllLines("input.txt").Select(x => x.Replace(" ", string.Empty));
             (int head, string tape, List<string> Instructions) = (int.Parse(lines.First()), lines.Skip(1).First(), lines.Skip(2).ToList());
+           
             Console.WriteLine(head);
             Console.WriteLine(tape);
-            Console.WriteLine(Instructions[1].CurrentStatus);
+           
 
+        }
+
+        public void Tell()
+        {
+            Console.WriteLine(Instructions[0].CurrentStatus);
         }
 
 
