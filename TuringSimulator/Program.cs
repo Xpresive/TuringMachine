@@ -21,8 +21,9 @@ namespace TuringSimulator
                 {
                     Console.WriteLine(i + "  " + inputs[i]);
                 }
-                Console.WriteLine(inputs.Length + "  Threading");
-                Console.WriteLine(inputs.Length + 1 + "  Exit program");
+                Console.WriteLine(inputs.Length + "  Thread all of inputs");
+                Console.WriteLine(inputs.Length + 1 + "  Thread certain inputs");
+                Console.WriteLine(inputs.Length + 2 + "  Exit program");
                 Console.WriteLine("\nWhich File do you want to use for turing machine? Please enter the digit:\n");
 
                 int pick = Convert.ToInt32(Console.ReadLine());
@@ -34,6 +35,7 @@ namespace TuringSimulator
                 }
                 else if (pick == inputs.Length)
                 {
+
                     Parallel.ForEach(inputs, (input) =>
                     {
                         TuringMachine turingMachine = new TuringMachine(input);
@@ -42,6 +44,29 @@ namespace TuringSimulator
                     );
                 }
                 else if (pick == inputs.Length+1)
+                {
+                    List<string> ThreadInputs = new List<string>();
+                    int i = 0;
+                    Console.WriteLine("Please choose file which you want to Thread and hit enter, type 'done' when you want to thread your choices");
+                    while (true)
+                    {
+                        string ThreadInput = Console.ReadLine();
+                        if (ThreadInput == "done")
+                            break;
+                        else
+                        {
+                            ThreadInputs.Add(inputs[Convert.ToInt32(ThreadInput)]);
+                        }
+                    }
+
+                    Parallel.ForEach(ThreadInputs, (input) =>
+                    {
+                        TuringMachine turingMachine = new TuringMachine(input);
+                        turingMachine.Start();
+                    }
+                     );
+                }
+                else if (pick == inputs.Length+2)
                 {
                     Environment.Exit(0);
                 }
@@ -127,11 +152,11 @@ namespace TuringSimulator
 
         public void PrintTape()
         {
-
-            Console.WriteLine(Tape);
+;            Console.WriteLine(Tape);
             if (Head >= 0)
                 Console.WriteLine(new string(' ', Head) + '^');
         }
+
 
         public void Dict()
         {
