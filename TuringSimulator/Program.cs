@@ -26,7 +26,7 @@ namespace TuringSimulator
                 Console.WriteLine(inputs.Length + 2 + "  Exit program");
                 Console.WriteLine("\nWhich File do you want to use for turing machine? Please enter the digit:\n");
 
-                int pick = Convert.ToInt32(Console.ReadLine());
+                int pick = Int32.Parse(Console.ReadLine());
 
                 if (pick >= 0 && pick < inputs.Length)
                 {
@@ -46,7 +46,6 @@ namespace TuringSimulator
                 else if (pick == inputs.Length+1)
                 {
                     List<string> ThreadInputs = new List<string>();
-                    int i = 0;
                     Console.WriteLine("Please choose file which you want to Thread and hit enter, type 'done' when you want to thread your choices");
                     while (true)
                     {
@@ -55,7 +54,7 @@ namespace TuringSimulator
                             break;
                         else
                         {
-                            ThreadInputs.Add(inputs[Convert.ToInt32(ThreadInput)]);
+                            ThreadInputs.Add(inputs[Int32.Parse(ThreadInput)]);
                         }
                     }
 
@@ -97,7 +96,7 @@ namespace TuringSimulator
 
             Tape = lines.Skip(1).First();
             Instructions = lines.Skip(2).Select(line => Instruction.Parse(line)).ToList();
-            Head = Convert.ToInt32(HeadPosition);
+            Head = Int32.Parse(HeadPosition);
 
             Dict();
         }
