@@ -152,7 +152,7 @@ namespace TuringSimulator
 
         public void PrintTape()
         {
-;            Console.WriteLine(Tape);
+            Console.WriteLine(Tape);
             if (Head >= 0)
                 Console.WriteLine(new string(' ', Head) + '^');
         }
